@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		632A17EC152BFDF600DE6897 /* blossoms.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 632A17E9152BFDF600DE6897 /* blossoms.jpg */; };
+		632A17ED152BFDF600DE6897 /* gadsby.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 632A17EA152BFDF600DE6897 /* gadsby.jpg */; };
+		632A17EE152BFDF600DE6897 /* hello.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 632A17EB152BFDF600DE6897 /* hello.jpg */; };
 		63BC6DA215241C2700BAD09D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BC6DA115241C2700BAD09D /* UIKit.framework */; };
 		63BC6DA415241C2700BAD09D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BC6DA315241C2700BAD09D /* Foundation.framework */; };
 		63BC6DA615241C2700BAD09D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BC6DA515241C2700BAD09D /* CoreGraphics.framework */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		632A17E9152BFDF600DE6897 /* blossoms.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blossoms.jpg; sourceTree = "<group>"; };
+		632A17EA152BFDF600DE6897 /* gadsby.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gadsby.jpg; sourceTree = "<group>"; };
+		632A17EB152BFDF600DE6897 /* hello.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hello.jpg; sourceTree = "<group>"; };
 		63BC6D9D15241C2700BAD09D /* ToolbarNav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToolbarNav.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BC6DA115241C2700BAD09D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		63BC6DA315241C2700BAD09D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -83,6 +89,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		632A17E8152BFDF600DE6897 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				632A17E9152BFDF600DE6897 /* blossoms.jpg */,
+				632A17EA152BFDF600DE6897 /* gadsby.jpg */,
+				632A17EB152BFDF600DE6897 /* hello.jpg */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		63BC6D9215241C2600BAD09D = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +106,7 @@
 				63BC6DCB15241C2700BAD09D /* ToolbarNavTests */,
 				63BC6DA015241C2700BAD09D /* Frameworks */,
 				63BC6D9E15241C2700BAD09D /* Products */,
+				632A17E8152BFDF600DE6897 /* images */,
 			);
 			sourceTree = "<group>";
 		};
@@ -233,6 +250,9 @@
 				63BC6DAC15241C2700BAD09D /* InfoPlist.strings in Resources */,
 				63BC6DBB15241C2700BAD09D /* MasterViewController.xib in Resources */,
 				63BC6DE915242DE100BAD09D /* background.png in Resources */,
+				632A17EC152BFDF600DE6897 /* blossoms.jpg in Resources */,
+				632A17ED152BFDF600DE6897 /* gadsby.jpg in Resources */,
+				632A17EE152BFDF600DE6897 /* hello.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,8 @@
 
 @interface MasterViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+
 - (IBAction)goButtonTapped:(id)sender;
 
 @end
