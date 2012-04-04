@@ -37,7 +37,7 @@
 
 #define PADDING  20
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
 
     NSArray *names = [NSArray arrayWithObjects:
         @"blossoms.jpg",
@@ -84,19 +84,17 @@
 }
 
 - (void)goButtonTapped:(id)sender {
-    CGFloat toolbarHeight = self.toolbar.frame.size.height;
+    __block CGRect navToolbarFrame = self.toolbarNavController.toolbar.frame;
+    CGFloat toolbarHeight = navToolbarFrame.size.height;
     [UIView animateWithDuration:0.2 animations:^{
-        CGRect navToolbarFrame = self.toolbar.frame;
         navToolbarFrame.origin.y += toolbarHeight;
-        self.toolbar.frame = navToolbarFrame;
+        self.toolbarNavController.toolbar.frame = navToolbarFrame;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.2 animations:^{
-            CGRect navToolbarFrame = self.toolbar.frame;
             navToolbarFrame.origin.y -= toolbarHeight;
-            self.toolbar.frame = navToolbarFrame;
+            self.toolbarNavController.toolbar.frame = navToolbarFrame;
         }];
     }];
-
 }
 
 @end

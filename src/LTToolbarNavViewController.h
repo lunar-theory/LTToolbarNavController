@@ -13,11 +13,14 @@
 
 @interface LTToolbarNavViewController : UIViewController
 
+// The toolbar itself.
+@property(nonatomic,strong) IBOutlet UIToolbar *toolbar;
+
 // The current view controller stack.
-@property(nonatomic,readonly,retain) NSArray *viewControllers;
+@property(nonatomic,readonly,strong) NSArray *viewControllers;
 
 // The top view controller on the stack.
-@property(nonatomic,readonly,retain) UIViewController *topViewController;
+@property(nonatomic,readonly,strong) UIViewController *topViewController;
 
 // Convenience method pushes the root view controller without animation.
 - (id)initWithRootViewController:(UIViewController *)rootViewController; 
@@ -73,10 +76,10 @@
 // with a bottom bar (like a tab bar), the bottom bar will slide out. Default is NO.
 //@property(nonatomic) BOOL hidesBottomBarWhenPushed;
 
-// We want a toolbar where we can get it.
-@property(nonatomic,retain) IBOutlet UIToolbar *toolbar;
+// We want a collection of toolbar items.
+@property (nonatomic, strong) IBOutletCollection(UIBarButtonItem) NSArray *toolbarItems;
 
 // If this view controller has been pushed onto a navigation controller, return it.
-@property(nonatomic,readonly,retain) LTToolbarNavViewController *toolbarNavController;
+@property(nonatomic,readonly,strong) LTToolbarNavViewController *toolbarNavController;
 
 @end

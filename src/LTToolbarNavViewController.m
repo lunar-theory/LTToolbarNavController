@@ -10,20 +10,30 @@
 #import <objc/runtime.h>
 
 static char *toolbarNavControllerKey = "LTToolbarNavController";
-static char *toolbarKey = "LTToolbarNavControllerToolbar";
+static char *toolbarItemsKey = "LTToolbarNavControllerToolbarItems";
 
 @interface LTToolbarNavViewController ()
-@property(nonatomic,readwrite,retain) NSArray *viewControllers;
-@property(nonatomic,readwrite,retain) UIViewController *topViewController;
+@property(nonatomic,readwrite,strong) NSArray *viewControllers;
+@property(nonatomic,readwrite,strong) UIViewController *topViewController;
 @end
 
 @implementation LTToolbarNavViewController
 
+@synthesize toolbar;
 @synthesize viewControllers;
 @synthesize topViewController;
 
-- (id)initWithRootViewController:(UIViewController *)rootViewController {
+- (id)init {
     if (self = [super init]) {
+        CGFloat statusBarHeight = UIApplication.sharedApplication.statusBarFrame.size.height;
+        self.toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 1024 - (44 + statusBarHeight), 768, 44)];
+        self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    }
+    return self;
+}
+
+- (id)initWithRootViewController:(UIViewController *)rootViewController {
+    if (self = [self init]) {
         objc_setAssociatedObject(rootViewController, &toolbarNavControllerKey, self, OBJC_ASSOCIATION_RETAIN);
         self.viewControllers = [NSMutableArray arrayWithObject:rootViewController];
     }
@@ -32,9 +42,12 @@ static char *toolbarKey = "LTToolbarNavControllerToolbar";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view addSubview:self.toolbar];
     if (self.viewControllers.count > 0) {
         self.topViewController = [self.viewControllers objectAtIndex:0];
-        [self.view addSubview:topViewController.view];
+        // Must access the view in order for toolbarItems to be populated.
+        [self.view insertSubview:topViewController.view belowSubview:self.toolbar];
+        self.toolbar.items = topViewController.toolbarItems;
     }
 }
 
@@ -54,12 +67,12 @@ static char *toolbarKey = "LTToolbarNavControllerToolbar";
     return objc_getAssociatedObject(self, &toolbarNavControllerKey);
 }
 
-- (void)setToolbar:(UIToolbar *)toolbar {
-    objc_setAssociatedObject(self, &toolbarKey, toolbar, OBJC_ASSOCIATION_RETAIN);    
+- (void)setToolbarItems:(NSArray *)toolbarItems {
+    objc_setAssociatedObject(self, &toolbarItemsKey, toolbarItems, OBJC_ASSOCIATION_RETAIN);    
 }
 
-- (UIToolbar *)toolbar {
-    return objc_getAssociatedObject(self, &toolbarKey);
+- (NSArray *)toolbarItems {
+    return objc_getAssociatedObject(self, &toolbarItemsKey);
 }
 
 @end
